@@ -1,0 +1,15 @@
+<main class="main">
+  <div class="inner">
+    <%# ログインしているときは以下を表示する %>
+    <% if user_signed_in? %>
+      <div class="greeting">
+        こんにちは、
+        <%= link_to current_user.name + "さん", user_path(current_user.id), class: :greeting__link %>
+      </div>
+    <% end %>
+    <div class="card__wrapper">
+      <%# collectionオプションは、複数要素が入っているインスタンス変数を、collectionオプションの対象に指定%>
+      <%= render partial: "prototype", collection: @prototypes %>
+    </div>
+  </div>
+</main>
