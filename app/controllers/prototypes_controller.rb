@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
   # ログインしていない状態だと特定のページへのアクセスが制限
   before_action :authenticate_user!, only: [:new, :edit, :destroy, :update]
   # 投稿者以外がeditアクションにアクセスしたらトップページにリダイレクト
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :new]
 
   def index
     @prototypes = Prototype.includes(:user).order("created_at DESC")
